@@ -1,0 +1,15 @@
+fastapi
+websockets
+uvicorn
+langchain
+langchain-community
+langchain-core
+langchain-text-splitters
+python-dotenv
+langchain_google_genai
+cassandra-driver
+tiktoken
+cassio
+pypdf
+motor
+fastapi_limiter
