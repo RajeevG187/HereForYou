@@ -67,4 +67,29 @@ const appointmentsDoctor = async(req, res)=>{
     }
 }
 
-export {changeAvailability, doctorList, loginDoctor, appointmentsDoctor}
+// API to fetch doctor profile
+const getDoctorProfile = async (req, res) => {
+    try {
+        // Assuming authDoctor middleware adds userId to req
+        const doctorId = req.body;
+
+        if (!doctorId) {
+            return res.json({ success: false, message: "Doctor not authenticated." });
+        }
+
+        // Find doctor by ID, excluding password
+        const doctor = await doctorModel.findById(doctorId).select('-password');
+
+        if (!doctor) {
+            return res.json({ success: false, message: "Doctor not found." });
+        }
+
+        res.json({ success: true, doctor });
+
+    } catch (error) {
+        console.log(error.message);
+        res.json({ success: false, message: error.message });
+    }
+};
+
+export {changeAvailability, doctorList, loginDoctor, appointmentsDoctor, getDoctorProfile}

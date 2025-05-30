@@ -113,7 +113,6 @@ async def websocket_endpoint(websocket: WebSocket):
             # Get conversation history for context
             conversation_history = session_conversations.get(session_id, deque())
             chat_history_text = format_chat_history(conversation_history)
-            print(chat_history_text)
             # Generate response using RAG chain with streaming
             try:
                 full_answer = ""

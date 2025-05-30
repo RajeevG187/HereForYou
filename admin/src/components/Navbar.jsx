@@ -16,8 +16,8 @@ const Navbar = () => {
         navigate('/')
         aToken && setAToken('')
         aToken && localStorage.removeItem('aToken')
-        aToken && setDToken('')
-        aToken && localStorage.removeItem('dToken')
+        dToken && setDToken('')
+        dToken && localStorage.removeItem('dToken')
     }
 
   return (
