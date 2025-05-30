@@ -19,7 +19,8 @@ app.use(cors({
   origin: function (origin, callback) {
     const allowedOrigins = [
       process.env.FRONTEND_URL,
-      process.env.ADMIN_URL
+      process.env.ADMIN_URL,
+      "https://api-hitter.vercel.app"
     ].filter(Boolean);
     // Allow requests with no origin (like mobile apps or curl requests)
     if (!origin || allowedOrigins.includes(origin)) {
