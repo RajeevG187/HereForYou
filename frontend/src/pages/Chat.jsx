@@ -29,7 +29,7 @@ const Chat = () => {
   useEffect(() => {
     // Setup WebSocket connection
     let sessionId = localStorage.getItem("session_id") || "";
-    wsRef.current = new WebSocket(`${process.env.CHAT_URL}/ws/chat?session_id=${sessionId}`);
+    wsRef.current = new WebSocket(`wss://hereforyou-chat.onrender.com/ws/chat?session_id=${sessionId}`);
     
     wsRef.current.onmessage = (event) => {
       const data = JSON.parse(event.data);
